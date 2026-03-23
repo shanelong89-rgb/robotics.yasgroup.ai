@@ -243,7 +243,7 @@ interface PanelContentProps {
   setWitness: (w: string) => void;
   dragOver: boolean;
   setDragOver: (d: boolean) => void;
-  fileInputRef: React.RefObject<HTMLInputElement>;
+  fileInputRef: React.RefObject<HTMLInputElement | null>;
   handleFileAdd: (files: FileList | null) => void;
   handleSubmit: () => void;
   handleClose: () => void;
@@ -563,7 +563,7 @@ function Step2({
   setPhotos: React.Dispatch<React.SetStateAction<{ name: string; url: string }[]>>;
   witness: string; setWitness: (w: string) => void;
   dragOver: boolean; setDragOver: (d: boolean) => void;
-  fileInputRef: React.RefObject<HTMLInputElement>;
+  fileInputRef: React.RefObject<HTMLInputElement | null>;
   handleFileAdd: (files: FileList | null) => void;
   telemetry: { battery: number; speed: number; gforce: number | null; gps: string; ts: string };
 }) {

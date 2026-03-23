@@ -24,7 +24,7 @@ export function useInsightsPDF() {
   return { pdfRef, downloadReport };
 }
 
-export default function InsightsPDF({ pdfRef }: { pdfRef: React.RefObject<HTMLDivElement> }) {
+export default function InsightsPDF({ pdfRef }: { pdfRef: React.RefObject<HTMLDivElement | null> }) {
   return (
     <div
       id="insights-pdf"
