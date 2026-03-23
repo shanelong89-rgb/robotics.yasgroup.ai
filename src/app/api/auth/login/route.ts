@@ -10,7 +10,7 @@ const DEMO_USERS: Record<string, { password: string; name: string; role: string 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { email, password } = body as { email?: string; password?: string }
+    const { email, password, rememberMe } = body as { email?: string; password?: string; rememberMe?: boolean }
 
     if (API_BASE) {
       const res = await fetch(`${API_BASE}/auth/login`, {
@@ -22,7 +22,17 @@ export async function POST(req: NextRequest) {
       if (!res.ok) {
         return NextResponse.json(data, { status: res.status })
       }
-      return NextResponse.json(data, { status: 200 })
+      const token = data.accessToken || data.token || data.access_token
+      const response = NextResponse.json(data, { status: 200 })
+      if (token) {
+        response.cookies.set('yas_token', token, {
+          path: '/',
+          httpOnly: false,
+          sameSite: 'lax',
+          maxAge: rememberMe ? 30 * 24 * 3600 : 3600,
+        })
+      }
+      return response
     }
 
     if (!email || !password) {
@@ -36,10 +46,19 @@ export async function POST(req: NextRequest) {
 
     const token = randomBytes(32).toString('hex')
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       accessToken: token,
       user: { email: email.toLowerCase(), name: user.name, role: user.role },
     }, { status: 200 })
+
+    response.cookies.set('yas_token', token, {
+      path: '/',
+      httpOnly: false,
+      sameSite: 'lax',
+      maxAge: rememberMe ? 30 * 24 * 3600 : 3600,
+    })
+
+    return response
   } catch {
     return NextResponse.json({ error: 'Auth service unavailable' }, { status: 503 })
   }
