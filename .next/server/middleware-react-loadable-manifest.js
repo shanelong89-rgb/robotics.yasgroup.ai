@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"components/ProvidersWrapper.tsx -> ./Providers\":{\"id\":\"components/ProvidersWrapper.tsx -> ./Providers\",\"files\":[\"static/chunks/_app-pages-browser_src_components_Providers_tsx.js\"]}}"
