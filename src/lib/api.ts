@@ -1,6 +1,5 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api/v1'
+const API_BASE = '/api'
 
-// Simple in-memory token store (for client-side)
 let _accessToken: string | null = null
 
 export function setAccessToken(token: string) {
@@ -101,7 +100,6 @@ export const api = {
   },
 }
 
-// Map API asset to frontend Asset type
 export function mapApiAsset(a: any) {
   return {
     id: a.assetId || a.id,
@@ -120,7 +118,6 @@ export function mapApiAsset(a: any) {
     coveragePolicyId: a.activeCoverage?.policyId,
     premiumBurnRate: a.premiumBurnRate || 0,
     geography: detectGeography(a.lat, a.lng),
-    // Extended fields
     alertCount: a.alertCount || 0,
     highestAlertSeverity: a.highestAlertSeverity || 'NONE',
     riskMultiplier: a.riskMultiplier || 1.0,

@@ -1,13 +1,12 @@
-// SSR-safe socket.io client — only initializes in browser
-const WS_URL = process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:4000'
-
 let socket: any = null
 
 export function getSocket(): any {
-  if (typeof window === 'undefined') return null  // SSR guard
+  if (typeof window === 'undefined') return null
+
+  const WS_URL = process.env.NEXT_PUBLIC_WS_URL
+  if (!WS_URL) return null
 
   if (!socket) {
-    // Dynamically import socket.io-client only in browser
     const { io } = require('socket.io-client')
     socket = io(WS_URL, {
       transports: ['websocket', 'polling'],
