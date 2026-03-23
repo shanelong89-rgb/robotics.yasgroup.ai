@@ -1,26 +1,14 @@
 {
-  "app/claims/page.tsx -> @/components/AgentFAB": {
-    "id": "app/claims/page.tsx -> @/components/AgentFAB",
-    "files": [
-      "static/chunks/_app-pages-browser_src_components_AgentFAB_tsx-_ffe61.js"
-    ]
-  },
-  "app/claims/page.tsx -> @/components/FNOLPanel": {
-    "id": "app/claims/page.tsx -> @/components/FNOLPanel",
-    "files": [
-      "static/chunks/_app-pages-browser_src_components_FNOLPanel_tsx-_f4341.js"
-    ]
-  },
   "app/page.tsx -> @/components/AgentFAB": {
     "id": "app/page.tsx -> @/components/AgentFAB",
     "files": [
-      "static/chunks/_app-pages-browser_src_components_AgentFAB_tsx-_ffe62.js"
+      "static/chunks/_app-pages-browser_src_components_AgentFAB_tsx.js"
     ]
   },
   "app/page.tsx -> @/components/FNOLPanel": {
     "id": "app/page.tsx -> @/components/FNOLPanel",
     "files": [
-      "static/chunks/_app-pages-browser_src_components_FNOLPanel_tsx-_f4340.js"
+      "static/chunks/_app-pages-browser_src_components_FNOLPanel_tsx.js"
     ]
   },
   "app/page.tsx -> @/components/FleetMap": {
@@ -40,18 +28,6 @@
     "id": "app/page.tsx -> @/components/MobileKPIStrip",
     "files": [
       "static/chunks/_app-pages-browser_src_components_MobileKPIStrip_tsx.js"
-    ]
-  },
-  "app/treasury/page.tsx -> @/components/AgentFAB": {
-    "id": "app/treasury/page.tsx -> @/components/AgentFAB",
-    "files": [
-      "static/chunks/_app-pages-browser_src_components_AgentFAB_tsx-_ffe60.js"
-    ]
-  },
-  "app/treasury/page.tsx -> @/components/TelemetryChart": {
-    "id": "app/treasury/page.tsx -> @/components/TelemetryChart",
-    "files": [
-      "static/chunks/_app-pages-browser_src_components_TelemetryChart_tsx.js"
     ]
   },
   "components/ProvidersWrapper.tsx -> ./Providers": {
