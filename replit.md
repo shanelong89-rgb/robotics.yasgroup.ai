@@ -1,10 +1,11 @@
 # YAS Assurance - Fleet Intelligence Platform
 
 ## Overview
-YAS is a Next.js 14 web application providing a Fleet Intelligence Platform for fleet operators. It includes features for fleet management, telemetry, risk assessment, claims, capital markets, and more.
+YAS is a Next.js 15 web application providing a Fleet Intelligence Platform for fleet operators. It includes features for fleet management, telemetry, risk assessment, claims, capital markets, and more.
 
 ## Architecture
-- **Framework**: Next.js 14.2.35 (App Router) with TypeScript
+- **Framework**: Next.js 15.5 (App Router) with TypeScript
+- **React**: React 19
 - **Styling**: Tailwind CSS with custom design system
 - **State Management**: Zustand
 - **Maps**: Leaflet / React-Leaflet
@@ -34,7 +35,7 @@ src/
 ```
 
 ## API Routes
-- `POST /api/auth/login` — Demo login (admin@yas.io / demo1234), or proxies to external backend if NEXT_PUBLIC_API_URL is set
+- `POST /api/auth/login` — Demo login (admin@yas.io / demo1234), sets yas_token cookie server-side
 - `GET /api/auth/me` — Returns current user from token
 - `POST /api/auth/logout` — Clears auth cookie
 - `GET /api/command/snapshot` — Returns full fleet snapshot (assets, alerts, KPIs) from demo data
@@ -57,5 +58,10 @@ src/
 - **Dev**: `npm run dev` (port 5000, bound to 0.0.0.0)
 - **Build**: `npm run build`
 - **Start**: `npm run start` (port 5000, bound to 0.0.0.0)
-- **Package Manager**: npm with `--legacy-peer-deps` flag needed due to peer dependency conflicts
+- **Package Manager**: npm with `--legacy-peer-deps` flag (for @ducanh2912/next-pwa peer deps)
 - **Deployment**: Configured for autoscale deployment via Replit
+
+## Migration History
+- Migrated from Vercel to Replit (self-contained, no external backend)
+- Upgraded from React 18 + Next.js 14 → React 19 + Next.js 15
+- Removed unused packages: @privy-io/react-auth, @farcaster/mini-app-solana
